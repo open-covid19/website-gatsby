@@ -19,10 +19,10 @@ const mapPerCountry = cases => {
     }, []);
   };
   
-  const findCountry = (countries, currentCountry) =>
+const findCountry = (countries, currentCountry) =>
     countries.find(r => r["Country/Region"] === currentCountry) || {};
   
-  export const buildChartData = (confirmed, recovered, deaths, populations) => {
+export const buildChartData = (confirmed, recovered, deaths, populations) => {
     const confirmedPerCountry = mapPerCountry(confirmed);
     const recoveredPerCountry = mapPerCountry(recovered);
     const deathsPerCountry = mapPerCountry(deaths);
@@ -95,3 +95,9 @@ const mapPerCountry = cases => {
       (a, b) => b.totalConfirmed - a.totalConfirmed
     );
   };
+
+export const getPercentage = (divider, dividee) => {
+  return dividee !== 0
+    ? `${Math.round((divider / dividee) * 100000) / 1000}%`
+    : "N/A";
+}

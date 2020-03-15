@@ -23,8 +23,6 @@ class CustomizedXAxisTick extends PureComponent {
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active) {
-    console.log(payload, label);
-
     return (
       <div className="custom-tooltip">
         <span className="date">{formatDate(label)}</span>
